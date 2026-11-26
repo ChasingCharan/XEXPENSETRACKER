@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import "./Dashboard.css";
 
 import SummaryCard from "../SummaryCard/SummaryCard";
@@ -16,31 +16,48 @@ const Dashboard = () => {
 
   const [selectedExpense, setSelectedExpense] = useState(null);
 
-  const [walletBalance, setWalletBalance] = useState(4500);
+  const [walletBalance, setWalletBalance] = useState(() => {
+    const savedBalance = localStorage.getItem("walletBalance");
+    return savedBalance !== null ? JSON.parse(savedBalance) : 4500;
+  });
 
-  const [transactions, setTransactions] = useState([
-    {
-      id: 1,
-      name: "Samosa",
-      date: "2024-03-20",
-      amount: 150,
-      category: "Food",
-    },
-    {
-      id: 2,
-      name: "Movie",
-      date: "2024-03-21",
-      amount: 300,
-      category: "Entertainment",
-    },
-    {
-      id: 3,
-      name: "Auto",
-      date: "2024-03-22",
-      amount: 50,
-      category: "Travel",
-    },
-  ]);
+  const [transactions, setTransactions] = useState(() => {
+    const savedTransactions = localStorage.getItem("transactions");
+
+    return savedTransactions !== null
+      ? JSON.parse(savedTransactions)
+      : [
+          {
+            id: 1,
+            name: "Samosa",
+            date: "2024-03-20",
+            amount: 150,
+            category: "Food",
+          },
+          {
+            id: 2,
+            name: "Movie",
+            date: "2024-03-21",
+            amount: 300,
+            category: "Entertainment",
+          },
+          {
+            id: 3,
+            name: "Auto",
+            date: "2024-03-22",
+            amount: 50,
+            category: "Travel",
+          },
+        ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("walletBalance", JSON.stringify(walletBalance));
+  }, [walletBalance]);
+
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
 
   const totalExpenses = transactions.reduce(
     (total, transaction) => total + transaction.amount,
@@ -51,7 +68,7 @@ const Dashboard = () => {
   const handleAddExpense = (newExpense) => {
     setTransactions((prev) => [newExpense, ...prev]);
 
-    setWalletBalance((prev) => prev - newExpense.amount);
+    setWalletBalance((prev) => prev - Number(newExpense.amount));
   };
 
   // Open Edit Modal
@@ -68,7 +85,8 @@ const Dashboard = () => {
 
     if (!oldExpense) return;
 
-    const difference = updatedExpense.price - oldExpense.amount;
+    const newAmount = Number(updatedExpense.price);
+    const difference = newAmount - oldExpense.amount;
 
     setWalletBalance((prev) => prev - difference);
 
@@ -78,7 +96,7 @@ const Dashboard = () => {
           ? {
               ...transaction,
                 name: updatedExpense.title,
-                amount: updatedExpense.price,
+                amount: newAmount,
                 category: updatedExpense.category,
                 date: updatedExpense.date,
               }
@@ -92,7 +110,7 @@ const Dashboard = () => {
 
   // Add Income
   const handleAddBalance = (incomeAmount) => {
-    setWalletBalance((prev) => prev + incomeAmount);
+    setWalletBalance((prev) => prev + Number(incomeAmount));
   };
 
   // Delete Expense

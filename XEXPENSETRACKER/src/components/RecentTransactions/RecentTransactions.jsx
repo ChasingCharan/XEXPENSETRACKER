@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import {
     MdRestaurant,
     MdCardGiftcard,
-    MdShoppingBag,
     MdMovie,
     MdLuggage,
 } from "react-icons/md";
@@ -12,7 +11,6 @@ import "./RecentTransactions.css";
 const categoryIcons = {
     Food: <MdRestaurant />,
     Travel: <MdLuggage />,
-    Shopping: <MdShoppingBag />,
     Entertainment: <MdMovie />,
     Others: <MdCardGiftcard />,
 };
