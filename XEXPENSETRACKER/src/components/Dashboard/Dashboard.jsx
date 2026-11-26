@@ -18,7 +18,7 @@ const Dashboard = () => {
 
   const [walletBalance, setWalletBalance] = useState(() => {
     const savedBalance = localStorage.getItem("walletBalance");
-    return savedBalance !== null ? JSON.parse(savedBalance) : 4500;
+    return savedBalance !== null ? JSON.parse(savedBalance) : 5000;
   });
 
   const [transactions, setTransactions] = useState(() => {
@@ -26,29 +26,7 @@ const Dashboard = () => {
 
     return savedTransactions !== null
       ? JSON.parse(savedTransactions)
-      : [
-          {
-            id: 1,
-            name: "Samosa",
-            date: "2024-03-20",
-            amount: 150,
-            category: "Food",
-          },
-          {
-            id: 2,
-            name: "Movie",
-            date: "2024-03-21",
-            amount: 300,
-            category: "Entertainment",
-          },
-          {
-            id: 3,
-            name: "Auto",
-            date: "2024-03-22",
-            amount: 50,
-            category: "Travel",
-          },
-        ];
+      : []
   });
 
   useEffect(() => {
