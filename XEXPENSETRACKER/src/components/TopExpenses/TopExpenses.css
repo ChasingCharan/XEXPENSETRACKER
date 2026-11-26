@@ -1,0 +1,76 @@
+.top-expenses {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  color: white;
+}
+
+.top-expenses h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.expenses-card {
+  flex: 1;
+  min-height: 250px;
+  box-sizing: border-box;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 25px;
+  background: white;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 3px 5px #0003;
+}
+
+.expense-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.expense-label {
+  width: 75px;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.expense-bar-track {
+  flex: 1;
+  min-width: 0;
+  height: 15px;
+  background: #eee;
+  overflow: hidden;
+  border-radius: 0 8px 8px 0;
+}
+
+.expense-bar {
+  height: 100%;
+  border-radius: 0 8px 8px 0;
+  transition: width 0.3s ease;
+}
+
+.no-expenses {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+  .expenses-card {
+    min-height: 220px;
+  }
+
+  .expense-label {
+    width: 80px;
+  }
+}

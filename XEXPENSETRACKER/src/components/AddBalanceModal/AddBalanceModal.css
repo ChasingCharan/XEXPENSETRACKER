@@ -1,0 +1,87 @@
+
+.add-balance-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.add-balance-modal {
+    width: 500px;
+    max-width: 90%;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.add-balance-modal h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    color: #000000;
+}
+
+.add-balance-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-balance-row input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-balance-row input:focus {
+    border-color: #B5DC52;
+}
+
+.add-balance-btn {
+    background: linear-gradient(90deg, #B5DC52 0%, #89E148 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.add-balance-btn:hover {
+    opacity: 0.9;
+}
+
+.balance-cancel-btn {
+    background: #e5e5e5;
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.balance-cancel-btn:hover {
+    background: #d5d5d5;
+}
+
+@media (max-width: 550px) {
+    .add-balance-row {
+        flex-wrap: wrap;
+    }
+
+    .add-balance-row input {
+        flex-basis: 100%;
+    }
+}

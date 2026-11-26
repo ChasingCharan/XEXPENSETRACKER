@@ -1,0 +1,74 @@
+.expense-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(237, 232, 232, 0.25);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.expense-modal {
+  /* width: 300px; */
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.expense-modal h2 {
+  margin: 0 0 15px;
+  font-size: 18px;
+  color: #111;
+}
+
+.modal-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.modal-row input,
+.modal-row select {
+  width: 50%;
+  min-width: 0;
+  height: 38px;
+  padding: 0 10px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.modal-actions button {
+  border: none;
+  height: 32px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 11px;
+  width: 50%;
+}
+
+.add-expense-btn {
+  flex: 1;
+  background: #f5b942;
+  color: white;
+  font-weight: 600;
+}
+
+.cancel-btn {
+  padding: 0 20px;
+  background: #bebaba;
+  color: #343030;
+}
