@@ -66,7 +66,7 @@ const RecentTransactions = ({ transactions, onEdit, onDelete }) => {
                                 </div>
 
                                 <span className="transaction-amount">
-                                    ₹{transaction.amount.toLocaleString("en-IN")}
+                                    ₹{transaction.amount}
                                 </span>
 
                                 <button

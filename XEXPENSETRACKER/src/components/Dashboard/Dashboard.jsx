@@ -22,7 +22,7 @@ const Dashboard = () => {
   });
 
   const [transactions, setTransactions] = useState(() => {
-    const savedTransactions = localStorage.getItem("transactions");
+    const savedTransactions = localStorage.getItem("expenses");
 
     return savedTransactions !== null
       ? JSON.parse(savedTransactions)
@@ -34,7 +34,7 @@ const Dashboard = () => {
   }, [walletBalance]);
 
   useEffect(() => {
-    localStorage.setItem("transactions", JSON.stringify(transactions));
+    localStorage.setItem("expenses", JSON.stringify(transactions));
   }, [transactions]);
 
   const totalExpenses = transactions.reduce(
@@ -138,7 +138,7 @@ const Dashboard = () => {
                 <i className="color-box"></i>Travel
               </span>
 
-              <span className="Entertainment">
+              <span className="entertainment">
                 <i className="color-box"></i>Entertainment
               </span>
 
