@@ -1,0 +1,4 @@
+[build]
+  base = "XEXPENSETRACKER"
+  command = "npm ci --include=dev && npm run build"
+  publish = "dist"
